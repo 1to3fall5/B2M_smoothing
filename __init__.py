@@ -36,6 +36,14 @@ from . op_align           import Xalign
 from . op_align           import Yalign
 from . op_align           import Zalign
 from . op_select          import SelectAngle
+from . op_select          import SelectBoundry
+from . op_select          import SelectInner
+from . op_select          import SelectLess
+from . op_select          import SelectMore
+from . op_select          import SelectLoop
+from . op_select          import SelectRing
+from . op_rotate          import LightRotate
+
 
 def register():
     bpy.utils.register_class(Panel)
@@ -52,6 +60,13 @@ def register():
     bpy.utils.register_class(Yalign)
     bpy.utils.register_class(Zalign)
     bpy.utils.register_class(SelectAngle)
+    bpy.utils.register_class(SelectBoundry)
+    bpy.utils.register_class(SelectInner)
+    bpy.utils.register_class(SelectLess)
+    bpy.utils.register_class(SelectMore)
+    bpy.utils.register_class(SelectLoop)
+    bpy.utils.register_class(SelectRing)
+    bpy.utils.register_class(LightRotate)
     bpy.types.Scene.angle_smooth = bpy.props.FloatProperty(
         name = "",
         description = "Set Smoothing Angle",
@@ -65,6 +80,11 @@ def register():
         default = 30.0,
         min = 0.0,
         max = 180.0
+    )
+
+    bpy.types.Object.bool_active = bpy.props.BoolProperty(
+        name = "",
+        default = False
     )
     wm = bpy.context.window_manager
     kc =  wm.keyconfigs.active
@@ -86,6 +106,13 @@ def unregister():
     bpy.utils.unregister_class(Yalign)
     bpy.utils.unregister_class(Zalign)
     bpy.utils.unregister_class(SelectAngle)
+    bpy.utils.unregister_class(SelectBoundry)
+    bpy.utils.unregister_class(SelectInner)
+    bpy.utils.unregister_class(SelectLess)
+    bpy.utils.unregister_class(SelectMore)
+    bpy.utils.unregister_class(SelectLoop)
+    bpy.utils.unregister_class(SelectRing)
+    bpy.utils.unregister_class(LightRotate)
     #del bpy.Scene.Object.angle_smooth
     #del bpy.Scene.Object.angle_select
 
